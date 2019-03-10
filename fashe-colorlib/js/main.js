@@ -82,20 +82,23 @@
 
      /*[ Fixed Header ]
     ===========================================================*/
-    var posWrapHeader = $('.topbar').height();
+    var posWrapHeader = $('.topbar').height() - 35;
     var header = $('.container-menu-header');
 
     $(window).on('scroll',function(){
 
         if($(this).scrollTop() >= posWrapHeader) {
             $('.header1').addClass('fixed-header');
-            $(header).css('top',-posWrapHeader); 
+            $('.topbar').addClass('fixed-header');
+            
+           // $(header).css('top',-posWrapHeader); 
 
         }  
         else {
             var x = - $(this).scrollTop(); 
             $(header).css('top',x); 
             $('.header1').removeClass('fixed-header');
+            $('.topbar').removeClass('fixed-header');
         } 
 
         if($(this).scrollTop() >= 200 && $(window).width() > 992) {
